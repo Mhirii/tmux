@@ -6,24 +6,29 @@ if patched_font_in_use; then
 	TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
 	TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
 	TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
+	TMUX_POWERLINE_SEPARATOR_LEFT_ROUND=""
+	TMUX_POWERLINE_SEPARATOR_RIGHT_ROUND=""
 else
 	TMUX_POWERLINE_SEPARATOR_LEFT_BOLD="◀"
 	TMUX_POWERLINE_SEPARATOR_LEFT_THIN="❮"
 	TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD="▶"
 	TMUX_POWERLINE_SEPARATOR_RIGHT_THIN="❯"
+	TMUX_POWERLINE_SEPARATOR_LEFT_ROUND=""
+	TMUX_POWERLINE_SEPARATOR_RIGHT_ROUND=""
 fi
 
 THEME="nero"
 BLACK1="#0d1c2e"
-BLACK2="#132842"
-BLACK3="#17304d"
+BLACK2="#12243a"
+BLACK3="#1c314a"
+BLACK4="#223b58"
 RED="#f5596b"
 YELLOW="#c8e155"
 GREEN="#47b2d1"
 BLUE="#0da8f2"
 PURPLE="#b291f3"
 CYAN="#3df5de"
-WHITE="#a9c7d6"
+WHITE="#0da8f2"
 
 TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=$BLACK1
 TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR=$WHITE
@@ -37,13 +42,13 @@ TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SE
 
 if [ -z $TMUX_POWERLINE_WINDOW_STATUS_CURRENT ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_CURRENT=(
+		"#[$(format regular)]"
+		"$TMUX_POWERLINE_SEPARATOR_LEFT_ROUND"
 		"#[$(format inverse)]"
-		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR"
-		" #I#F "
-		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN"
+		" #I"
 		" #W "
 		"#[$(format regular)]"
-		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR"
+		"$TMUX_POWERLINE_SEPARATOR_RIGHT_ROUND"
 	)
 fi
 
@@ -56,8 +61,7 @@ fi
 if [ -z $TMUX_POWERLINE_WINDOW_STATUS_FORMAT ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_FORMAT=(
 		"#[$(format regular)]"
-		"  #I#{?window_flags,#F, } "
-		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN"
+		"  #I#{#F, } "
 		" #W "
 	)
 fi
@@ -92,36 +96,37 @@ fi
 if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
 		"tmux_session_info $BLUE $BLACK1"
+		"pwd $BLACK4 $BLUE"
+		"vcs_branch $BLACK3"
+		"vcs_modified $BLACK2 $RED"
 		# "hostname $BLACK1 $BLUE" \
 		#"ifstat 30 255" \
 		#"ifstat_sys 30 255" \
 		# "lan_ip 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
-		"pwd $BLACK3 $GREEN"
-		# "wan_ip $BLACK2 $BLUE" \
-		"vcs_branch $BLACK2 $CYAN "
+		# "wan_ip $BLACK1 $BLUE"
 		#"vcs_compare 60 255" \
 		#"vcs_staged 64 255" \
-		#"vcs_modified 9 255" \
 		#"vcs_others 245 0" \
 	)
 fi
 
 if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
+		"now_playing $BLACK2 $PURPLE"
+		"battery $BLACK3 $CYAN"
+		"time $BLUE $BLACK1 "
+		#"time $BLUE $BLACK1 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+		#"mailcount 9 255" \
 		#"earthquake 3 0" \
 		#"macos_notification_count 29 255" \
-		#"mailcount 9 255" \
-		"now_playing $BLACK2 $PURPLE"
 		#"cpu 240 136" \
 		# "load 237 167" \
 		#"tmux_mem_cpu_load 234 136" \
-		"battery $BLACK3 $CYAN"
 		#"air ${TMUX_POWERLINE_SEG_AIR_COLOR} 255" \
-		# "weather 37 255" \
+		#"weather 37 255" \
 		#"rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}" \
 		#"xkb_layout 125 117" \
-		"date_day $BLUE $BLACK1"
-		"time $BLUE $BLACK1 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+		#"date_day $BLUE $BLACK1"
 		#"utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 	)
 fi

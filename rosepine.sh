@@ -20,11 +20,10 @@ BLACK3="#26233a"
 RED="#eb6f92"
 YELLOW="#f6c177"
 GREEN="#ebbcba"
-BLUE="#31748f" 
+BLUE="#31748f"
 PURPLE="#c4a7e7"
 CYAN="#9ccfd8"
 WHITE="#e0def4"
-
 
 TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=$BLACK1
 TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR=$WHITE
@@ -38,12 +37,12 @@ TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SE
 
 if [ -z $TMUX_POWERLINE_WINDOW_STATUS_CURRENT ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_CURRENT=(
-		"#[$(format inverse)]" \
-		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR" \
-		" #I#F " \
-		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
-		" #W " \
-		"#[$(format regular)]" \
+		"#[$(format inverse)]"
+		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR"
+		" #I#F "
+		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN"
+		" #W "
+		"#[$(format regular)]"
 		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR"
 	)
 fi
@@ -56,9 +55,9 @@ fi
 
 if [ -z $TMUX_POWERLINE_WINDOW_STATUS_FORMAT ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_FORMAT=(
-		"#[$(format regular)]" \
-		"  #I#{?window_flags,#F, } " \
-		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
+		"#[$(format regular)]"
+		"  #I#{?window_flags,#F, } "
+		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN"
 		" #W "
 	)
 fi
@@ -92,14 +91,14 @@ fi
 
 if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-		"tmux_session_info $BLUE $BLACK1" \
+		"tmux_session_info $BLUE $BLACK1"
 		# "hostname $BLACK1 $BLUE" \
 		#"ifstat 30 255" \
 		#"ifstat_sys 30 255" \
 		# "lan_ip 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
-		"pwd $BLACK3 $GREEN" \
+		"pwd $BLACK3 $GREEN"
 		# "wan_ip $BLACK2 $BLUE" \
-		"vcs_branch $BLACK2 $CYAN " \
+		"vcs_branch $BLACK2 $CYAN "
 		#"vcs_compare 60 255" \
 		#"vcs_staged 64 255" \
 		#"vcs_modified 9 255" \
@@ -112,17 +111,17 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
 		#"earthquake 3 0" \
 		#"macos_notification_count 29 255" \
 		#"mailcount 9 255" \
-		"now_playing $BLACK2 $PURPLE" \
+		"now_playing $BLACK2 $PURPLE"
 		#"cpu 240 136" \
 		# "load 237 167" \
 		#"tmux_mem_cpu_load 234 136" \
-		"battery $BLACK3 $CYAN" \
-        #"air ${TMUX_POWERLINE_SEG_AIR_COLOR} 255" \
+		"battery $BLACK3 $CYAN"
+		#"air ${TMUX_POWERLINE_SEG_AIR_COLOR} 255" \
 		# "weather 37 255" \
 		#"rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}" \
 		#"xkb_layout 125 117" \
-		"date_day $BLUE $BLACK1" \
-		"time $BLUE $BLACK1 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+		# "date_day $BLUE $BLACK1" \
+		"time $BLUE $BLACK1 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
 		#"utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 	)
 fi
