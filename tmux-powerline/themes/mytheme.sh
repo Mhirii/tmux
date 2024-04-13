@@ -1,0 +1,1 @@
+/home/mhiri/.config/tmux/mytheme.sh
